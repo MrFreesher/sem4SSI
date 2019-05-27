@@ -10,7 +10,7 @@ class Grafika:
         self.green = [[] for _ in range(self.width)]
         self.blue = [[] for _ in range(self.width)]
        
-
+    #Get pixels from image
     def MACIERZ(self):
         imageFile = Image.open(self.filePath)
         for y in range(self.height):
@@ -20,18 +20,20 @@ class Grafika:
                 self.red[y].append(r)
                 self.green[y].append(g)
                 self.blue[y].append(b)
+    #Filter funtion
     def filter(self,filterName = "blur"):
-        
+        #Blur filter
         box_kernel = [[1 / 9, 1 / 9, 1 / 9],
                     [1 / 9, 1 / 9, 1 / 9],
                     [1 / 9, 1 / 9, 1 / 9]]
 
-       
+       #Gaussian blur
         gaussian_kernel = [[1 / 256, 4  / 256,  6 / 256,  4 / 256, 1 / 256],
                         [4 / 256, 16 / 256, 24 / 256, 16 / 256, 4 / 256],
                         [6 / 256, 24 / 256, 36 / 256, 24 / 256, 6 / 256],
                         [4 / 256, 16 / 256, 24 / 256, 16 / 256, 4 / 256],
                         [1 / 256, 4  / 256,  6 / 256,  4 / 256, 1 / 256]]
+        #Sharp filter
         sharp_kernel = [[  0  , -.5 ,    0 ],
           [-.5 ,   3  , -.5 ],
           [  0  , -.5 ,    0 ]]
